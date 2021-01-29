@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: encryption-keys-1
-stringdata:
+data:
   mlaasapp021_key1: "test1"
   mlaasapp021_key2: "test2"
   mlaasapp021_key3: "test3"
