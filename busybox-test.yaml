@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: encryption-keys-1
+stringdata:
+  mlaasapp021_key1: "test1"
+  mlaasapp021_key2: "test2"
+  mlaasapp021_key3: "test3"
+  mlaasapp021_key4: "test4"
+  mlaasapp021_key5: "test5"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  labels:
+    app: busybox
+spec:
+  containers:
+  - image: busybox:latest
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    name: busybox
+    envFrom:
+    - configMapRef:
+        name: encryption-keys-1
