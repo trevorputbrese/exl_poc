@@ -11,18 +11,6 @@ data:
   mlaasapp021_key5: "test5"
 ---
 apiVersion: v1
-data:
-  certifiadd.crt: 
-  "certifiadd-test-crt"
-  condassl.crt:
-  "condassl.crt-test"
-  nltk.crt: |
-  "nltk.crt-test"
-kind: ConfigMap
-metadata:
-  name: cm-test-2
----
-apiVersion: v1
 kind: Pod
 metadata:
   name: busybox
@@ -39,10 +27,3 @@ spec:
     envFrom:
     - configMapRef:
         name: cm-test-1
-    volumeMounts:
-        - name: cm-test-2-volume
-          mountPath:  /opt/EXL-DSAE/siea/scioapp_0_1_9/imports/clientssl
-    volumes:
-      - name:  cm-test-2-volume
-        configMap:
-          name: cm-test-2

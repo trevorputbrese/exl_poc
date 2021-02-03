@@ -1,0 +1,134 @@
+ exl-app-fullv5.yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: encryption-keys-1
+data:
+  mlaasapp021_runtype: "demo"
+  mlaasapp021_runmode: "default"
+  mlaasapp021_w3gloglevel: "info"
+  mlaasapp021_w3glogtimeout: "600"
+  mlaasapp021_fcloglevel: "critical"
+  mlaasapp021_ssldir: "$PWD/imports/clientssl"
+  mlaasapp021_sslcacert: "serverca.crt"
+  mlaasapp021_sslservercert: "server.crt"
+  mlaasapp021_sslserverkey: "server.key"
+  mlaasapp021_sslcondacert: "condassl.crt"
+  mlaasapp021_sslcertificert: "certifiadd.crt"
+  mlaasapp021_importssl: "True"
+  mlaasapp021_importcondassl: "True"
+  mlaasapp021_importcertifissl: "True"
+  mlaasapp021_emodule_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  mlaasapp021_dmodule_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  mlaasapp021_imodule_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  mlaasapp021_cmodule_key: "" # -- Console
+  mlaasapp021_amodule_key: "" # -- Adminstrative
+---
+apiVersion: v1
+data:
+  certifiadd.crt: "-----BEGIN CERTIFICATE----------END
+    CERTIFICATE-----\r\n-----BEGIN CERTIFICATE----------END
+    CERTIFICATE-----\n"
+  condassl.crt: "-----BEGIN CERTIFICATE----------END
+    CERTIFICATE-----\r\n-----BEGIN CERTIFICATE----------END
+    CERTIFICATE-----\n"
+  nltk.crt: |
+    -----BEGIN CERTIFICATE-----
+
+    -----END CERTIFICATE-----
+  sciosea.yml: |
+    apiVersion: v1
+    data:
+      certifiadd.crt: |
+        -----BEGIN CERTIFICATE-----
+        
+        -----END CERTIFICATE-----
+      condassl.crt: |
+        -----BEGIN CERTIFICATE-----
+        
+        -----END CERTIFICATE-----
+      server.crt: |
+        -----BEGIN CERTIFICATE-----
+       
+        -----END CERTIFICATE-----
+      server.key: |
+        -----BEGIN PRIVATE KEY-----
+        
+        -----END PRIVATE KEY-----
+      serverca.crt: |
+        -----BEGIN CERTIFICATE-----
+        
+        -----END CERTIFICATE-----
+    kind: ConfigMap
+    metadata:
+      creationTimestamp: null
+      name: ssl-config01
+  server.crt: |
+    -----BEGIN CERTIFICATE-----
+    
+    -----END CERTIFICATE-----
+  server.csr: |
+    -----BEGIN CERTIFICATE REQUEST-----
+    
+    -----END CERTIFICATE REQUEST-----
+  server.key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    
+    -----END RSA PRIVATE KEY-----
+  serverca.crt: |
+    -----BEGIN CERTIFICATE-----
+    
+    -----END CERTIFICATE-----
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: ssl-config019
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sieascioappv2
+  name: sieascioappv2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sieascioappv2
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: sieascioappv2
+    spec:
+      containers:
+      - image: harbor.sciohealthanalytics.net/sieascioapp/sieascioapp:019
+        name: sieascioapp
+        envFrom:
+        - configMapRef:
+            name: encryption-keys-1
+        ports:
+          - containerPort: 8082
+        volumeMounts:
+        - name:   ssl-certs-volumes
+          mountPath:  /opt/EXL-DSAE/siea/scioapp_0_1_9/imports/clientssl
+      securityContext:
+        runAsUser: 1001
+      volumes:
+        - name:  ssl-certs-volumes
+          configMap:
+            name:  ssl-config019
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sieascioappv1-lb
+spec:
+  selector:
+    app: sieascioappv1
+  ports:
+    - port: 8081
+      targetPort: 8082
+  type: LoadBalancer
+---

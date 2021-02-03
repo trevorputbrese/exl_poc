@@ -1,0 +1,121 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-test-1
+data:
+  mlaasapp021_key1: "test1"
+  mlaasapp021_key2: "test2"
+  mlaasapp021_key3: "test3"
+  mlaasapp021_key4: "test4"
+  mlaasapp021_key5: "test5"
+---
+apiVersion: v1
+data:
+  test.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIID2zCCAsOgAwIBAgIJAMDGShgKaB5aMA0GCSqGSIb3DQEBCwUAMIGaMQswCQYD
+    VQQDDAJDQTEXMBUGCgmSJomT8ixkARkWB3ZzcGhlcmUxFTATBgoJkiaJk/IsZAEZ
+    FgVsb2NhbDELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExHDAaBgNV
+    BAoME3Zjc2EwMS50cnZjbG91ZC5jb20xGzAZBgNVBAsMElZNd2FyZSBFbmdpbmVl
+    cmluZzAeFw0yMTAxMDkxOTU4MDNaFw0yMjAxMDkxOTU4MDNaMEQxHDAaBgNVBAsT
+    E3Zjc2EwMS50cnZjbG91ZC5jb20xJDAiBgNVBAMTG2t1YmUtYXBpc2VydmVyLWRv
+    bWFpbi1jMTAwOTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMZ0d9Ix
+    xMlKB1DcLz09UeN1Wo/QbXrsF62CvIPDMq6pEU3z76yNwWGH+E7WemIt3k4BEEtg
+    p+7TmUux1IrWmvLcDRrSFa35KZn64D072U4JAutAN2AAZs89RiJU9Ekt9j4r4x7V
+    D/EvWbd2NCS8zI0v8NgAWt5SMVYvcG+aTDJEGmOKA9EPtPz4gq4Ok56siPqHAPvk
+    7xTDN4a+YxDpqqfEAmt5/X4/dQqzuNCfUKQx47RwZDT1vAqSW56wBYrJWcVkuqJZ
+    /0kxBDwoIqSOMD04oRlzdQBq6unCbnW3YlbbKcSex0AMAjAyA5myql6cd6F91HTh
+    ANWtTgy1fT3Yqy0CAwEAAaN5MHcwDwYDVR0RBAgwBocEChQUATAfBgNVHSMEGDAW
+    gBTeBISH9xDZwizvMKKob7z3G8gXiTBDBggrBgEFBQcBAQQ3MDUwMwYIKwYBBQUH
+    MAKGJ2h0dHBzOi8vdmNzYTAxLnRydmNsb3VkLmNvbS9hZmQvdmVjcy9jYTANBgkq
+    hkiG9w0BAQsFAAOCAQEAa8Ba7zsZYiD0TXzx4UmpnCajhCoiTcLkVvWq5gAkHPsS
+    lA6oeo1Vog1rv++grhUUNTnzn6CVCArL4PsAz4KDvtT4/nkz6MqJDTMDyUVaqQQV
+    WPPO90FFeV4swZ2ZZ5/23p+7r/6PntwaLDroFsgyhehr2keEQih2pwcvlSOzz8X4
+    mpneZCpq1edTmj5NAi61K/aGmVUG4N6CVTPmg5TyBhcGJI2T45S9Gmddbfr0HPKX
+    g1A2iMRDntT4kfE+PFboZIaIQBIf3Kvz1j77GVW1niw6wJCEr6TH27rI8PSdaBl9
+    JkXi/lfv5plHAH3yi8sxpiuaB3d7CG64evA9MJ/J9g==
+    -----END CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
+    MIID2zCCAsOgAwIBAgIJAMDGShgKaB5aMA0GCSqGSIb3DQEBCwUAMIGaMQswCQYD
+    VQQDDAJDQTEXMBUGCgmSJomT8ixkARkWB3ZzcGhlcmUxFTATBgoJkiaJk/IsZAEZ
+    FgVsb2NhbDELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExHDAaBgNV
+    BAoME3Zjc2EwMS50cnZjbG91ZC5jb20xGzAZBgNVBAsMElZNd2FyZSBFbmdpbmVl
+    cmluZzAeFw0yMTAxMDkxOTU4MDNaFw0yMjAxMDkxOTU4MDNaMEQxHDAaBgNVBAsT
+    E3Zjc2EwMS50cnZjbG91ZC5jb20xJDAiBgNVBAMTG2t1YmUtYXBpc2VydmVyLWRv
+    bWFpbi1jMTAwOTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMZ0d9Ix
+    xMlKB1DcLz09UeN1Wo/QbXrsF62CvIPDMq6pEU3z76yNwWGH+E7WemIt3k4BEEtg
+    p+7TmUux1IrWmvLcDRrSFa35KZn64D072U4JAutAN2AAZs89RiJU9Ekt9j4r4x7V
+    D/EvWbd2NCS8zI0v8NgAWt5SMVYvcG+aTDJEGmOKA9EPtPz4gq4Ok56siPqHAPvk
+    7xTDN4a+YxDpqqfEAmt5/X4/dQqzuNCfUKQx47RwZDT1vAqSW56wBYrJWcVkuqJZ
+    /0kxBDwoIqSOMD04oRlzdQBq6unCbnW3YlbbKcSex0AMAjAyA5myql6cd6F91HTh
+    ANWtTgy1fT3Yqy0CAwEAAaN5MHcwDwYDVR0RBAgwBocEChQUATAfBgNVHSMEGDAW
+    gBTeBISH9xDZwizvMKKob7z3G8gXiTBDBggrBgEFBQcBAQQ3MDUwMwYIKwYBBQUH
+    MAKGJ2h0dHBzOi8vdmNzYTAxLnRydmNsb3VkLmNvbS9hZmQvdmVjcy9jYTANBgkq
+    hkiG9w0BAQsFAAOCAQEAa8Ba7zsZYiD0TXzx4UmpnCajhCoiTcLkVvWq5gAkHPsS
+    lA6oeo1Vog1rv++grhUUNTnzn6CVCArL4PsAz4KDvtT4/nkz6MqJDTMDyUVaqQQV
+    WPPO90FFeV4swZ2ZZ5/23p+7r/6PntwaLDroFsgyhehr2keEQih2pwcvlSOzz8X4
+    mpneZCpq1edTmj5NAi61K/aGmVUG4N6CVTPmg5TyBhcGJI2T45S9Gmddbfr0HPKX
+    g1A2iMRDntT4kfE+PFboZIaIQBIf3Kvz1j77GVW1niw6wJCEr6TH27rI8PSdaBl9
+    JkXi/lfv5plHAH3yi8sxpiuaB3d7CG64evA9MJ/J9g==
+    -----END CERTIFICATE-----
+  test1.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIID2zCCAsOgAwIBAgIJAMDGShgKaB5aMA0GCSqGSIb3DQEBCwUAMIGaMQswCQYD
+    VQQDDAJDQTEXMBUGCgmSJomT8ixkARkWB3ZzcGhlcmUxFTATBgoJkiaJk/IsZAEZ
+    FgVsb2NhbDELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExHDAaBgNV
+    BAoME3Zjc2EwMS50cnZjbG91ZC5jb20xGzAZBgNVBAsMElZNd2FyZSBFbmdpbmVl
+    cmluZzAeFw0yMTAxMDkxOTU4MDNaFw0yMjAxMDkxOTU4MDNaMEQxHDAaBgNVBAsT
+    E3Zjc2EwMS50cnZjbG91ZC5jb20xJDAiBgNVBAMTG2t1YmUtYXBpc2VydmVyLWRv
+    bWFpbi1jMTAwOTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMZ0d9Ix
+    xMlKB1DcLz09UeN1Wo/QbXrsF62CvIPDMq6pEU3z76yNwWGH+E7WemIt3k4BEEtg
+    p+7TmUux1IrWmvLcDRrSFa35KZn64D072U4JAutAN2AAZs89RiJU9Ekt9j4r4x7V
+    D/EvWbd2NCS8zI0v8NgAWt5SMVYvcG+aTDJEGmOKA9EPtPz4gq4Ok56siPqHAPvk
+    7xTDN4a+YxDpqqfEAmt5/X4/dQqzuNCfUKQx47RwZDT1vAqSW56wBYrJWcVkuqJZ
+    /0kxBDwoIqSOMD04oRlzdQBq6unCbnW3YlbbKcSex0AMAjAyA5myql6cd6F91HTh
+    ANWtTgy1fT3Yqy0CAwEAAaN5MHcwDwYDVR0RBAgwBocEChQUATAfBgNVHSMEGDAW
+    gBTeBISH9xDZwizvMKKob7z3G8gXiTBDBggrBgEFBQcBAQQ3MDUwMwYIKwYBBQUH
+    MAKGJ2h0dHBzOi8vdmNzYTAxLnRydmNsb3VkLmNvbS9hZmQvdmVjcy9jYTANBgkq
+    hkiG9w0BAQsFAAOCAQEAa8Ba7zsZYiD0TXzx4UmpnCajhCoiTcLkVvWq5gAkHPsS
+    lA6oeo1Vog1rv++grhUUNTnzn6CVCArL4PsAz4KDvtT4/nkz6MqJDTMDyUVaqQQV
+    WPPO90FFeV4swZ2ZZ5/23p+7r/6PntwaLDroFsgyhehr2keEQih2pwcvlSOzz8X4
+    mpneZCpq1edTmj5NAi61K/aGmVUG4N6CVTPmg5TyBhcGJI2T45S9Gmddbfr0HPKX
+    g1A2iMRDntT4kfE+PFboZIaIQBIf3Kvz1j77GVW1niw6wJCEr6TH27rI8PSdaBl9
+    JkXi/lfv5plHAH3yi8sxpiuaB3d7CG64evA9MJ/J9g==
+    -----END CERTIFICATE-----`
+kind: ConfigMap
+metadata:
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:test.crt: {}
+        f:test1.crt: {}
+  name: cm-test-2
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  labels:
+    app: busybox
+spec:
+  containers:
+  - image: busybox:latest
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    name: busybox
+    envFrom:
+    - configMapRef:
+        name: cm-test-1
+    volumeMounts:
+    - name: cm-test-2-volume
+      mountPath:  /opt/EXL-DSAE/siea/scioapp_0_1_9/imports/clientssl
+  volumes:
+  - name:  cm-test-2-volume
+    configMap:
+      name: cm-test-2
